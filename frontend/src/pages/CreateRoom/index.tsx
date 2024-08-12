@@ -1,6 +1,7 @@
-import { ArrowRight } from "lucide-react";
-import amaLogo from "../../assets/images/ama-logo.svg";
 import { useNavigate } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+
+import amaLogo from "../../assets/images/ama-logo.svg";
 
 export function CreateRoom() {
   const navigate = useNavigate();
