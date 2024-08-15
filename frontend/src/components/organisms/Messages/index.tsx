@@ -18,9 +18,14 @@ export function Messages() {
 
   useMessagesWebSockets({ roomId })
 
+  // Exibe a mensagem com mais curtidas em primeiro lugar
+  const sortedMessages = data.messages.sort(
+    (a, b) => b.amountofLikes - a.amountofLikes
+  )
+
   return (
     <ol className="list-decimal list-outside px-3 space-y-8">
-      {data.messages.map(message => {
+      {sortedMessages.map(message => {
         return (
           <Message
             key={message.id}
