@@ -1,8 +1,11 @@
 import { Toaster } from "sonner";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { QueryClientProvider } from "@tanstack/react-query";
 
 import { CreateRoom } from "./pages/CreateRoom";
 import { Room } from "./pages/Room";
+
+import { queryClient } from "./lib/react-query";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +20,7 @@ const router = createBrowserRouter([
 
 export function App() {
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
       <Toaster
         visibleToasts={1}
@@ -30,6 +33,6 @@ export function App() {
           },
         }}
       />
-    </>
+    </QueryClientProvider>
   );
 }
